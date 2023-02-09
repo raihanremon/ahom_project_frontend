@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../../com/navbar";
+import Mainnav from "../../components/navbar";
 import HeroSection from "./herosection";
 
 function Home(){
     return(
         <>
-            <Navbar/>
+            <Mainnav/>
             <HeroSection/>
         </>
     );

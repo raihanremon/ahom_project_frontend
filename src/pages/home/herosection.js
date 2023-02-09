@@ -1,6 +1,8 @@
 import React from "react";
-import MyButton from "../../com/button";
 
+import MyButton from "../../components/button";
+import BuildingImg from "../../assets/image/building.jpg"
+import "./home.css"
 
 export default function HeroSection(){
     return(
@@ -13,10 +15,10 @@ export default function HeroSection(){
                             Experience smart, customized, low-cost payment solutions made for you.
                             <span>Even No Gas Fees.</span>
                         </p>
-                        <MyButton.ButtonWithBG title="Get Started Now!" />
+                        <MyButton.ButtonWithBG link="/" title="Get Started Now!" />
                     </div>
                     <div className="heroarea-right">
-                        <img src="#" alt="Hearo image"/>
+                        <img src={BuildingImg} alt="Hearo image"/>
                     </div>
                 </div>
             </div>

@@ -46,7 +46,7 @@ function Mainnav() {
                                 Meet the team
                             </Nav>
 
-                            <Nav to="/scan" className="nav-item nav-link">
+                            <Nav to="/scanner" className="nav-item nav-link">
                                 Block Search
                             </Nav>
 

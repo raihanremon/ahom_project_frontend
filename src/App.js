@@ -1,21 +1,24 @@
-
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Home from './pages/home/home';
-import LoginPage from "./pages/login/login";
-import './App.css';
+import HomePage from "./pages/Home";
+import Scanner from "./pages/Scanner";
+// import Dashboard from "./pages/dashboard-1/DashboardMain";
+import Login from "./pages/Login";
+import Dashboard from "./pages/dashboard/Dashboard";
+import "./App.css";
+// import Daskboard from "./pages/Daskboard";
 
 function App() {
   return (
-
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/search" element={<Scanner />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        </Routes>
+      </BrowserRouter>
   );
 }
 

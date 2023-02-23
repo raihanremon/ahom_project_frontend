@@ -40,12 +40,12 @@ const WalletCard = () => {
   window.ethereum.on("chianChanged", chainChangedHander);
 
   return (
-    <div className="walletcard">
+    <div className="walletcard text-center">
       <h4>Connection to Metamask</h4>
-      <button onClick={connectWalletHandler} className="btn btn-primary">
+      <button onClick={connectWalletHandler} className="btn btn-primary mt-4">
         Connect Wallet
       </button>
-      <div className="actionDisplay">
+      <div className="actionDisplay p-5">
         <h3>Address: {defualtAccount}</h3>
       </div>
       <div className="balanceDisplay">

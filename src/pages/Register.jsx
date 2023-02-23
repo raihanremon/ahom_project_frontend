@@ -1,17 +1,21 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const Login = () => {
-  // const loginHandler = () =>{
-    
-  // }
   return (
     <div className="container">
       <Header />
       <form className="row my-5 py-5 justify-content-center login">
         <div className="col-4 align-items-center ">
-      <h1>Login</h1>
+          <h1>Register</h1>
+          <div className="form-outline mb-4">
+            <input type="text" id="name" className="form-control" />
+            <label className="form-label" htmlFor="name">
+              Name
+            </label>
+          </div>
           <div className="form-outline mb-4">
             <input type="email" id="email" className="form-control" />
             <label className="form-label" htmlFor="email">
@@ -29,13 +33,13 @@ const Login = () => {
           <button
             type="button"
             className="btn btn-primary btn-block mb-4 text-center"
-         onClick={()=>{}}>
-            Sign in
+          >
+            Rigister
           </button>
 
           <div className="text-center">
             <p>
-              Not a member? <Link to="/register">Register</Link>
+              Already Have an account? <Link to="/login">Login</Link>
             </p>
           </div>
         </div>

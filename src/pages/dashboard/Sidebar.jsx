@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "../../Sidebar.css";
 
 const Sidebar = () => {
@@ -40,10 +41,10 @@ const Sidebar = () => {
 
           <ul className="menu-links">
             <li className="nav-link">
-              <a href="/">
+              <Link to="/dashboard">
                 <i className="bx bx-home-alt icon"></i>
                 <span className="text nav-text">Dashboard</span>
-              </a>
+              </Link>
             </li>
 
             <li className="nav-link">
@@ -69,10 +70,10 @@ const Sidebar = () => {
 
 
             <li className="nav-link">
-              <a href="/">
+              <Link to="/wallet">
                 <i className="bx bx-wallet icon"></i>
-                <span className="text nav-text">Wallets</span>
-              </a>
+                <span className="text nav-text">Wallet</span>
+              </Link>
             </li>
           </ul>
         </div>

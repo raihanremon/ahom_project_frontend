@@ -1,4 +1,4 @@
-import React from "react";
+
 import Header from "../components/Header";
 import BuildingImage from "../assetes/images/building.jpg";
 import ManImage from "../assetes/images/man.jpg";

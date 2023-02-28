@@ -1,5 +1,5 @@
 :root{
-  --primary-colors: #FFFBF5;
+  --primary-colors: white;
   --secondary-color: #F7EFE5;
   --text-colors: #C3ACD0;
   --background-colors: #674188;
@@ -10,11 +10,11 @@
 
 
 body{
-  background-color: var(--text-colors) !important;
+  background-color: var(--primary-colors) !important;
 }
 .nav-link{
   /* color: #65B8F6 !important; */
-  color: whitesmoke !important;
+  color: #707070 !important;
   font-weight: 700;
 }
 .nav-item :hover, :focus{
@@ -22,9 +22,10 @@ body{
 }
 
 .login{
-  background-color: #C3ACD0 !important;
+  /*background-color: rgb(225, 224, 224) !important;*/
+  background-color: #E4E9F7 !important;
 }
-/* 
+/*
 .card{
   padding-left: 10rem;
 } */

@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Wallet from "./pages/dashboard/Wallet";
 import "./App.css";
-// import Daskboard from "./pages/Daskboard";
+
 
 function App() {
   return (

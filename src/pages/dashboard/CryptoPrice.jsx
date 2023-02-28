@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaBitcoin, FaEthereum } from "react-icons/fa";
 import { SiLitecoin, SiDogecoin } from "react-icons/si";
+import "../../CryptoPrice.css"
 
 const CryptoPrice = () => {
   const [bitcoinPrice, setBitcoinPrice] = useState(0.0);
@@ -23,49 +24,55 @@ const CryptoPrice = () => {
   }, []);
   return (
     <div>
-      <div className="row">
-        <div className="col-6 col-md-4 col-lg-3">
-          <div className="card shadow-sm">
-            <div className="card-body text-center">
-            <span ><FaBitcoin size={"2rem"} color={"#F99417"} /></span>
-              <h6 className="card-title">Bitcoin</h6>
-              <h2 className="card-text">${bitcoinPrice}</h2>
+
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <div className="col">
+            <div className="card shadow-sm">
+              <div className="card-body text-center">
+                <span><FaBitcoin size={"2rem"} color={"#F99417"}/></span>
+                <h6 className="card-title">Bitcoin</h6>
+                <h2 className="card-text">${bitcoinPrice}</h2>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card shadow-sm">
+              <div className="card-body text-center">
+                <span><FaEthereum size={"2rem"}/></span>
+                <h6 className="card-title">Ethereum</h6>
+                <h2 className="card-text">${ethereumPrice}</h2>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card shadow-sm">
+              <div className="card-body text-center">
+                <span><SiLitecoin size={"2rem"} color={"#345E9D"}/></span>
+                <h6 className="card-title">Litecoin</h6>
+                <h2 className="card-text">${litecoinPrice}</h2>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card shadow-sm">
+              <div className="card-body text-center">
+                <span><SiDogecoin size={"2rem"} color={"#B9A032"}/></span>
+                <h6 className="card-title">Dogecoin</h6>
+                <h2 className="card-text">${dogecoinPrice}</h2>
+              </div>
+            </div>
+          </div>
+          <div className="col order-first order-md-last">
+            <div className="card shadow-sm">
+              <div className="card-body text-center">
+                <h6 className="card-title">Ahom Token</h6>
+                <h2 className="card-text">100 AHT</h2>
+              </div>
             </div>
           </div>
         </div>
-        <div className="col-6 col-md-4 col-lg-3">
-          <div className="card shadow-sm">
-            <div className="card-body text-center">
-            <span><FaEthereum size={"2rem"} /></span>
-              <h6 className="card-title">Ethereum</h6>
-              <h2 className="card-text">${ethereumPrice}</h2>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-6 col-md-4 col-lg-3">
-          <div className="card shadow-sm">
-            <div className="card-body text-center">
-            <span><SiLitecoin size={"2rem"} color={"#345E9D"} /></span>
-              <h6 className="card-title">Litecoin</h6>
-              <h2 className="card-text">${litecoinPrice}</h2>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="col-6 col-md-4 col-lg-3">
-          <div className="card shadow-sm">
-            <div className="card-body text-center">
-            <span><SiDogecoin size={"2rem"} color={"#B9A032"} /></span>
-              <h6 className="card-title">Dogecoin</h6>
-              <h2 className="card-text">${dogecoinPrice}</h2>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
+
   );
 };
 

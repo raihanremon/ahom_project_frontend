@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../../Sidebar.css";
+import {URL} from "../../components/constants"
+import Cookies from "js-cookie";
 
 const Sidebar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+
+  const logoutHandler = async () =>{
+    await fetch(URL+"logout").then(()=> {
+          const cookie = Cookies.remove("token")
+          console.log(cookie)
+        }
+    )
+  }
 
   const toggleSidebar = () => {
     document.querySelector('nav.sidebar').classList.toggle('close');
@@ -80,10 +91,10 @@ const Sidebar = () => {
 
         <div className="bottom-content">
           <li>
-            <a href="/">
-              <i className="bx bx-log-out icon"></i>
+            <Link to="/">
+              <i className="bx bx-log-out icon" onClick={logoutHandler}></i>
               <span className="text nav-text">Logout</span>
-            </a>
+            </Link>
           </li>
 
           <li className="mode" onClick={toggleDarkMode}>

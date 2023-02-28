@@ -22,17 +22,21 @@ const Card = ({ title, text }) => {
         }
     }
   return (
-    <div className="container p-2 align-self-center">
-      <div className="card" style={{ width: "18rem" }}>
-        <div className="text-center mt-2">
-         {iconCheck()}
-        </div>
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{text}</p>
-        </div>
+      <div className="container">
+          <div className="row">
+              <div className="col-md-6 col-lg-4">
+                  <div className="card d-flex flex-column justify-content-center align-items-center" style={{ width: "20rem" }}>
+                      <div className="text-center mt-2">
+                          {iconCheck()}
+                      </div>
+                      <div className="card-body">
+                          <h5 className="card-title">{title}</h5>
+                          <p className="card-text">{text}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
   );
 };
 

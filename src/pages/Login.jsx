@@ -3,40 +3,41 @@ import {Link, Navigate} from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import {URL} from "../components/constants"
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie'
 
 const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [redirect, setRedirect] = useState(false)
+
     const submitHandler = async (e) => {
         e.preventDefault()
         await fetch(URL + "login", {
-                method: "POST",
-                mode: "no-cors",
-                xhrFields: {withCredentials: true},
-                credentials: "include",
-                crossDomain: true,
-                dataType: "json",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email,
-                    password
-                }),
+            method: "POST",
+            mode: "no-cors",
+            xhrFields: {"withCredentials": true},
+            credentials: "include",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
             },
-        ).then((res) => {
-            console.log(res.headers)
-            const cookies = Cookies.get("token")
-            console.log(cookies);
-            if (cookies) {
+            body: JSON.stringify({
+                email,
+                password
+            }),
+        }).then(() => {
+            const cookie = Cookies.get("JWT");
+            console.log(cookie);
+            if (cookie) {
                 setRedirect(true);
             } else {
-                alert("wrong email or password")
+                alert("wrong email or password");
             }
-        });
+        })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
     if (redirect) {
         return <Navigate to="/dashboard" replace={true}/>

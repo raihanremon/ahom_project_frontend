@@ -73,10 +73,10 @@ const Sidebar = () => {
                         </li>
 
                         <li className="nav-link">
-                            <a href="/">
+                            <Link to="/blocks">
                                 <i className="bx bx-pie-chart-alt icon"></i>
                                 <span className="text nav-text">Blocks</span>
-                            </a>
+                            </Link>
                         </li>
 
 

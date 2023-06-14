@@ -1,6 +1,7 @@
 import Sidebar from "./Sidebar";
 import {useEffect, useState} from "react";
 import {URL} from "../../components/constants"
+import {Link} from "react-router-dom";
 
 const Blocks = () => {
     const [blocks, setBlocks] = useState([])
@@ -34,7 +35,11 @@ const Blocks = () => {
                             blocks.map((data,index) =>
                                 <tr key={index}>
                                     <th scope="row">{index +1}</th>
-                                    <th scope="row">{data}</th>
+                                    <th scope="row">
+                                        <Link to={`scanner?hash=${encodeURIComponent(data)}`}>
+                                        {data}
+                                        </Link>
+                                    </th>
                                 </tr>) : ""
                         }
                         </tbody>

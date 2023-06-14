@@ -5,6 +5,7 @@ import ManImage from "../assetes/images/man.jpg";
 import "../Home.css";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
+import {Link} from "react-router-dom";
 
 
 const Home = () => {
@@ -22,9 +23,9 @@ const Home = () => {
               Experience smart, customized, low-cost payment solutions made for
               you. <span className="fw-bold">Even No Gas Fees.</span>
             </p>
-            <a href="/" className="btn btn-primary">
+            <Link to="/login" className="btn btn-primary">
               Get Started Now!
-            </a>
+            </Link>
           </div>
           <div className="order-lg-1 order-md-0 order-sm-0">
             {/* <img src={BuildingImage} alt="Building"  className="min-vw-50" /> */}

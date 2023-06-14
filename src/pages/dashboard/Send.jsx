@@ -4,7 +4,6 @@ import {useState, useEffect} from "react";
 import {URL} from '../../components/constants'
 import Sidebar from "./Sidebar";
 
-
 const Send = () => {
     const [sender, setSender] = useState('')
     const [receiver, setReceiver] = useState('')
@@ -28,8 +27,6 @@ const Send = () => {
         const data = await response.json();
         return data.exists;
     };
-
-
     const submitHandler = async (e) => {
         e.preventDefault();
         const receiverExists = await checkReceiverExists(receiver);
@@ -67,7 +64,6 @@ const Send = () => {
                         <input type="number" className="form-control" id="amount" name="amount"
                                onChange={(e) => setAmount(e.target.value)}/>
                     </div>
-
                     <button type="submit" className="btn btn-primary" onClick={submitHandler}>Submit</button>
                 </form>
             </div>

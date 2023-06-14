@@ -9,6 +9,7 @@ import Wallet from "./pages/dashboard/Wallet";
 import Dashboard from "./pages/dashboard/Dashboard";
 import PrivateOutlet from "./components/PrivateOutlet";
 import "./App.css";
+import About from "./pages/About";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/search" element={<Scanner/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
+                <Route path="/about" element={<About />}/>
                 <Route path="/*" element={<PrivateOutlet/>}>
                     <Route path="dashboard" element={<Dashboard/>}/>
                     <Route path="wallet" element={<Wallet/>}/>

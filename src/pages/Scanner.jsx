@@ -1,11 +1,15 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import {URL} from "../components/constants"
 import "../Scanner.css";
+import {Link, useLocation} from "react-router-dom";
 
 const Scanner = () => {
-    const [hash, setHash] = useState('')
+    const location = useLocation()
+    const queryParams = new URLSearchParams(location.search)
+    const hashParam = queryParams.get("hash")
+    const [hash, setHash] = useState(hashParam || '')
     const [sender, setSender] = useState('')
     const [receiver, setReceiver] = useState('')
     const [amount, setAmount] = useState('')
@@ -30,6 +34,11 @@ const Scanner = () => {
             })
 
     }
+    useEffect(()=>{
+        if(hashParam){
+            submitHandler().then(r => console.log(r));
+        }
+    },[hashParam])
     return (
         <div className="container">
             <Header/>
@@ -44,8 +53,10 @@ const Scanner = () => {
                                     className="form-control"
                                     placeholder="Enter your hash"
                                     onChange={(e) => setHash(e.target.value)}
+                                    value={hash}
                                 />
                                 <span className="input-group-btn">
+                                    <Link to={`/search?hash=${encodeURIComponent(hash)}`} replace></Link>
                   <button className="btn" type="submit" onClick={submitHandler}>
                     SEARCH
                   </button>

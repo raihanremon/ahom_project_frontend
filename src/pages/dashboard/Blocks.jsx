@@ -28,6 +28,7 @@ const Blocks = () => {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Hash</th>
+                            <th scope="col">Time</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,10 +37,11 @@ const Blocks = () => {
                                 <tr key={index}>
                                     <th scope="row">{index +1}</th>
                                     <th scope="row">
-                                        <Link to={`scanner?hash=${encodeURIComponent(data)}`}>
+                                        <Link to={`/search?hash=${encodeURIComponent(data)}`}>
                                         {data}
                                         </Link>
                                     </th>
+                                    <td>{new Date().toLocaleDateString()}</td>
                                 </tr>) : ""
                         }
                         </tbody>

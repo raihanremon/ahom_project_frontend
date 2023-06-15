@@ -1,0 +1,9 @@
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metamask-address {
+    text-align: right;
+}

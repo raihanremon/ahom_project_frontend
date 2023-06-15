@@ -1,47 +1,59 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import {URL} from "../components/constants"
+import { URL } from "../components/constants";
 import "../Scanner.css";
-import {Link, useLocation} from "react-router-dom";
 
 const Scanner = () => {
-    const location = useLocation()
-    const queryParams = new URLSearchParams(location.search)
-    const hashParam = queryParams.get("hash")
-    const [hash, setHash] = useState(hashParam || '')
-    const [sender, setSender] = useState('')
-    const [receiver, setReceiver] = useState('')
-    const [amount, setAmount] = useState('')
-    const [timestamp, setTimestamp] = useState('')
-    const [transHash, setTransHash] = useState('')
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const hashParam = queryParams.get("hash");
+    const [hash, setHash] = useState(hashParam || "");
+    const [sender, setSender] = useState("");
+    const [receiver, setReceiver] = useState("");
+    const [amount, setAmount] = useState("");
+    const [timestamp, setTimestamp] = useState("");
+    const [transHash, setTransHash] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const [showResult, setShowResult] = useState(false);
+
     const submitHandler = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        setIsLoading(true);
         await fetch(URL + "decode", {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                hash
-            },)
-        },).then(res => res.json())
-            .then(trans => {
+                hash,
+            }),
+        })
+            .then((res) => res.json())
+            .then((trans) => {
                 console.log(trans);
                 setSender(trans.Sender);
                 setReceiver(trans.Receiver);
-                setAmount(trans.Amount)
+                setAmount(trans.Amount);
                 setTimestamp(trans.TimeStamp);
                 setTransHash(trans.Hash);
-            })
+            });
 
-    }
-    useEffect(()=>{
-        if(hashParam){
-            submitHandler().then(r => console.log(r));
+        setTimeout(() => {
+            setIsLoading(false);
+            setShowResult(true);
+        }, 30000);
+    };
+
+    useEffect(() => {
+        if (hashParam) {
+            submitHandler().then((r) => console.log(r));
         }
-    },[hashParam])
+    }, [hashParam]);
+
     return (
         <div className="container">
-            <Header/>
+            <Header />
             <section className="newsletter my-5 py-5">
                 <div className="row align-items-center justify-content-center">
                     <div className="col-sm-12">
@@ -56,8 +68,15 @@ const Scanner = () => {
                                     value={hash}
                                 />
                                 <span className="input-group-btn">
-                                    <Link to={`/search?hash=${encodeURIComponent(hash)}`} replace></Link>
-                  <button className="btn" type="submit" onClick={submitHandler}>
+                  <Link
+                      to={`/search?hash=${encodeURIComponent(hash)}`}
+                      replace
+                  ></Link>
+                  <button
+                      className="btn"
+                      type="submit"
+                      onClick={submitHandler}
+                  >
                     SEARCH
                   </button>
                 </span>
@@ -66,7 +85,12 @@ const Scanner = () => {
                     </div>
                 </div>
             </section>
-            {sender !== undefined  ? (
+            {isLoading ? (
+                <div className="text-center mt-3">
+                    <Spinner animation="border" role="status" />
+                    <span className="ms-3">Searching......</span>
+                </div>
+            ) : showResult ? (
                 <table className="table">
                     <thead>
                     <tr>
@@ -83,16 +107,17 @@ const Scanner = () => {
                         <th scope="row">1</th>
                         <td>{sender}</td>
                         <td>{receiver}</td>
-                        <td>{amount}</td>
+                        <td>{amount} Ahom</td>
                         <td>{timestamp}</td>
                         <td>{transHash}</td>
                     </tr>
-
                     </tbody>
                 </table>
-            ):""}
+            ) : (
+                ""
+            )}
             <div className="container fixed-bottom">
-                <Footer/>
+                <Footer />
             </div>
         </div>
     );
